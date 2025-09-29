@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// ---------------- Middleware ----------------
+
 function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ message: "No token provided" });
@@ -22,12 +22,12 @@ function authMiddleware(req, res, next) {
     req.user = decoded;
     next();
   } catch (err) {
-    console.error("JWT error:", err.message); // <-- log error
+    console.error("JWT error:", err.message); 
     return res.status(401).json({ message: "Invalid or expired token" });
   }
 }
 
-// ---------------- Register ----------------
+
 router.post("/register", async (req, res) => {
   const { email, password, name } = req.body;
   if (!email || !password) return res.status(400).json({ message: "Missing fields" });
@@ -53,7 +53,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// ---------------- Login ----------------
+
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const conn = await pool.getConnection();
@@ -75,7 +75,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// ---------------- Change Password ----------------
 router.post("/change-password", authMiddleware, async (req, res) => {
   const { oldPassword, newPassword } = req.body;
   if (!oldPassword || !newPassword) return res.status(400).json({ message: "Missing fields" });
