@@ -56,14 +56,14 @@ export default function ResetPasswordPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-6">Change Password</h1>
+        <h1 className="text-2xl font-bold text-center mb-6 text-black">Change Password</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="password"
             placeholder="Old Password"
             value={oldPassword}
             onChange={(e) => setOldPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-4 py-2 border rounded-lg text-black"
             disabled={loading}
           />
           <input
@@ -71,7 +71,7 @@ export default function ResetPasswordPage() {
             placeholder="New Password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-4 py-2 border rounded-lg text-black"
             disabled={loading}
           />
           <input
@@ -79,7 +79,7 @@ export default function ResetPasswordPage() {
             placeholder="Confirm New Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-4 py-2 border rounded-lg text-black"
             disabled={loading}
           />
           <button

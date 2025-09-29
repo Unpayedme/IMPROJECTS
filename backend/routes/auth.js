@@ -34,7 +34,7 @@ router.post("/register", async (req, res) => {
 
   const conn = await pool.getConnection();
   try {
-    const [exists] = await conn.query("SELECT id FROM users WHERE email=?", [email]);
+    const [exists] = await conn.query("SELECT id FROM user WHERE email=?", [email]);
     if (exists.length) return res.status(400).json({ message: "Email exists" });
 
     const hash = await bcrypt.hash(password, 10);
