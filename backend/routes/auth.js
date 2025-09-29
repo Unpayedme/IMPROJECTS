@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
+
+//copyright
 //Jamak Gul Be Roger! The pirate king
 
 function authMiddleware(req, res, next) {
