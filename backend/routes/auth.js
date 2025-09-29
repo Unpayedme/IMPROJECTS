@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
+//Jamak Gul Be Roger! The pirate King
 
 function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
